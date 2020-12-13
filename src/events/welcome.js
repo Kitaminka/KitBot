@@ -16,7 +16,7 @@ module.exports = async (member) => {
 
     ctx.font = '50px "Impact"';
     ctx.fillStyle =  '#fff';
-    ctx.fillText('Добро пожаловать,', canvas.width / 2.8, canvas.height / 2.3);
+    ctx.fillText('Welcome,', canvas.width / 2.8, canvas.height / 2.3);
     ctx.fillText(`${member.user.username}!`, canvas.width / 2.8, canvas.height / 1.5);
 
     ctx.beginPath();
@@ -28,10 +28,10 @@ module.exports = async (member) => {
     ctx.drawImage(avatar, 25, 25, 200, 200);
 
     const embed = new Discord.MessageEmbed()
-        .setTitle(':wave:Добро пожаловать!')
-        .setDescription(`Добро пожаловать на сервер, ${member}. Надеюсь, тебе тут понравится.`)
+        .setTitle(':wave:Welcome!')
+        .setDescription(`Welcome to the server, ${member}. I hope you enjoy it here.`)
         .attachFiles([new Discord.MessageAttachment(canvas.toBuffer(), 'welcome_image.png')])
-        .setFooter('Чтобы пройти верификацию, нажмите реакцию ниже', 'https://i.imgur.com/DyWlZOU.png')
+        .setFooter('To complete the verification, click the reaction below', 'https://i.imgur.com/DyWlZOU.png')
         .setImage('attachment://welcome_image.png')
         .setTimestamp()
         .setColor(config.embedColor);
@@ -46,10 +46,10 @@ module.exports = async (member) => {
     welcomeMessage.awaitReactions(filter, { max: 1, time: 300000, errors: ['time'] })
         .then( () => {
             const editedMessage = new Discord.MessageEmbed()
-                .setTitle(':wave:Добро пожаловать!')
-                .setDescription(`Добро пожаловать на сервер, ${member}. Надеюсь, тебе тут понравится.`)
+                .setTitle(':wave:Welcome!')
+                .setDescription(`Welcome to the server, ${member}. I hope you enjoy it here.`)
                 .attachFiles([new Discord.MessageAttachment(canvas.toBuffer(), 'welcome_image.png')])
-                .setFooter('Верификация успешно пройдена', 'https://i.imgur.com/DyWlZOU.png')
+                .setFooter('Verification completed successfully', 'https://i.imgur.com/DyWlZOU.png')
                 .setImage('attachment://welcome_image.png')
                 .setTimestamp()
                 .setColor(config.embedColor);
@@ -60,6 +60,6 @@ module.exports = async (member) => {
         })
         .catch( () => {
             welcomeMessage.delete();
-            if (member) member.kick('Верификация не была пройдена в течении 5 минут');
+            if (member) member.kick('Verification was not completed within 5 minutes');
         });
 }

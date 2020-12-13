@@ -5,17 +5,17 @@ module.exports = {
     name: 'ping',
     adminCommand: false,
     usage: `**${config.prefix}ping**`,
-    description: 'Вывести пинг бота.',
+    description: 'Display bot ping',
     async execute(message) {
         let embed = new Discord.MessageEmbed()
-            .setTitle('Пинг...')
+            .setTitle('Pinging...')
             .setColor(config.embedColor);
         message.channel.send(embed).then(res => {
             const ping = res.createdTimestamp - message.createdTimestamp;
 
             embed = new Discord.MessageEmbed()
-                .setTitle(':ping_pong:Понг!')
-                .setDescription(`Пинг бота ${ping}ms!`)
+                .setTitle(':ping_pong:Pong!')
+                .setDescription(`Bot ping is ${ping}ms!`)
                 .setTimestamp()
                 .setColor(config.embedColor);
 

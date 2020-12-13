@@ -4,7 +4,7 @@ const config = require('../../config.json');
 module.exports = {
     errorEmbed(errorText) {
         return new Discord.MessageEmbed()
-            .setTitle(':x:Ошибка')
+            .setTitle(':x:Error')
             .setDescription(errorText)
             .setTimestamp()
             .setColor(config.embedColor);
@@ -15,10 +15,10 @@ module.exports = {
         else commandStatus = 'Нет';
 
         return new Discord.MessageEmbed()
-            .setTitle(`:page_facing_up:Описание команды ${config.prefix + command.name}`)
+            .setTitle(`:page_facing_up:Command ${config.prefix + command.name} description`)
             .setDescription(command.description)
-            .addField('Требует роль администратора:', commandStatus)
-            .addField('Использование:', command.usage)
+            .addField('Requires administrator role:', commandStatus)
+            .addField('Usage:', command.usage)
             .setTimestamp()
             .setColor(config.embedColor);
     },

@@ -5,8 +5,8 @@ const config = require('../../config.json');
 module.exports = {
     name: 'avatar',
     adminCommand: false,
-    usage: `**${config.prefix}avatar**, **${config.prefix}avatar <id_пользователя>** или **${config.prefix}avatar <упоминание_пользователя>**`,
-    description: 'Вывести аватар пользователя.',
+    usage: `**${config.prefix}avatar**, **${config.prefix}avatar [user_ID]** или **${config.prefix}avatar [user_mention]**`,
+    description: 'Display the user\'s avatar.',
     async execute(message, args) {
         let selectedUser, embed;
         if (!args[0]) {
@@ -20,11 +20,11 @@ module.exports = {
         }
 
         if (!selectedUser) {
-            embed = Embed.errorEmbed('Не удалось найти пользователя.');
+            embed = Embed.errorEmbed('User not found.');
         }
         else {
             embed = new Discord.MessageEmbed()
-                .setTitle(`:bust_in_silhouette:Аватар пользователя ${selectedUser.username}`)
+                .setTitle(`:bust_in_silhouette:${selectedUser} user avatar`)
                 .setImage(selectedUser.displayAvatarURL({ format:'png', dynamic:true, size:4096, }))
                 .setTimestamp()
                 .setColor(config.embedColor);

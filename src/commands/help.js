@@ -5,14 +5,14 @@ const config = require('../../config.json');
 module.exports = {
     name: 'help',
     adminCommand: false,
-    usage: `**${config.prefix}help** или **${config.prefix}help <имя_команды>**`,
-    description: 'Вывести полный список доступных команд.',
+    usage: `**${config.prefix}help** или **${config.prefix}help [command_name]**`,
+    description: 'Display list all available commands.',
     async execute(message, args, client) {
         let embed;
         if (!args[0]) {
             embed = new Discord.MessageEmbed()
-                .setTitle(':robot:Список команд')
-                .setDescription(`Чтобы получить полную информацию по конкретной команде, напишите **${config.prefix}help <имя команды>**. Полный список команд данного бота:`)
+                .setTitle(':robot:Command list')
+                .setDescription(`To get information about a specific command, write !help [commandName]. Full list of commands for this bot:`)
                 .setTimestamp()
                 .setColor(config.embedColor);
             for (const command of client.commands) {
@@ -32,7 +32,7 @@ module.exports = {
             }
         } else {
             if (!client.commands.has(args[0])) {
-                embed = Embed.errorEmbed('Введенная вами команда не существует.');
+                embed = Embed.errorEmbed('The command you entered doesn\'t exist.');
             } else {
                 embed = Embed.commandInfo(client.commands.get(args[0]));
             }

@@ -17,11 +17,11 @@ module.exports = {
             if (url.startsWith('//')) url = `https:${url}`;
 
             const embed = new Discord.MessageEmbed()
-                .setTitle(':frame_photo:Случайное изображение')
+                .setTitle(':frame_photo:Random image')
                 .setImage(url)
                 .setColor(config.embedColor)
                 .setTimestamp()
-                .setFooter('Чтобы получить новое изображение, нажмите реакцию ниже', 'https://i.imgur.com/022pOyg.png');
+                .setFooter('To get a new image, click the reaction below', 'https://i.imgur.com/022pOyg.png');
 
             if (!result) {
                 result = await message.channel.send(embed);
@@ -42,7 +42,7 @@ module.exports = {
             })
             .catch(() => {
                 const embed = new Discord.MessageEmbed()
-                    .setTitle(':frame_photo:Случайное изображение')
+                    .setTitle(':frame_photo:Random image')
                     .setImage(url)
                     .setColor(config.embedColor)
                     .setTimestamp();
@@ -58,7 +58,7 @@ module.exports = {
             const memeNumber = Math.floor(Math.random() * 100);
             const memeUrl = res.body.data.children[memeNumber].data.url;
             embed = new Discord.MessageEmbed()
-                .setTitle(':joy:Случайный мем')
+                .setTitle(':joy:Random meme')
                 .setImage(memeUrl)
                 .setColor(config.embedColor)
                 .setTimestamp();

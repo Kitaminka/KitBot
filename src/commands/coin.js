@@ -5,18 +5,18 @@ module.exports = {
     name: 'coin',
     adminCommand: false,
     usage: `**${config.prefix}coin**`,
-    description: 'Подбросить монетку.',
+    description: 'Flip a coin.',
    async execute(message) {
         let embed;
         if (Math.round(Math.random()) === 0) {
             embed = new Discord.MessageEmbed()
-                .setTitle(':coin:Выпал орёл!')
+                .setTitle(':coin:Eagle fell!')
                 .setThumbnail('https://i.imgur.com/35Vdrxy.png')
                 .setTimestamp()
                 .setColor(config.embedColor);
         } else {
             embed = new Discord.MessageEmbed()
-                .setTitle(':coin:Выпала решка!')
+                .setTitle(':coin:Tails fell!')
                 .setThumbnail('https://i.imgur.com/PYPK3PD.png')
                 .setTimestamp()
                 .setColor(config.embedColor);
