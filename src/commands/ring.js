@@ -5,7 +5,7 @@ module.exports = {
     name: 'rimg',
     adminCommand: false,
     usage: `**${config.prefix}rimg**`,
-    description: 'Вывести случайное изображение с сервиса https://prnt.sc/.',
+    description: 'Display a random image from the service https://prnt.sc/.',
     async execute(message) {
         await Images.randomImage(message);
     }

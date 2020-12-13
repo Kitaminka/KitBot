@@ -5,7 +5,7 @@ const config = require('../../config.json');
 module.exports = {
     name: 'avatar',
     adminCommand: false,
-    usage: `**${config.prefix}avatar**, **${config.prefix}avatar [userID]** или **${config.prefix}avatar [userMention]**`,
+    usage: `**${config.prefix}avatar**, **${config.prefix}avatar [user_ID]** или **${config.prefix}avatar [user_mention]**`,
     description: 'Display the user\'s avatar.',
     async execute(message, args) {
         let selectedUser, embed;

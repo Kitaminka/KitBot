@@ -5,8 +5,8 @@ const config = require('../../config.json');
 module.exports = {
     name: 'user',
     adminCommand: false,
-    usage: `**${config.prefix}user**, **${config.prefix}user <id_пользователя>** или **${config.prefix}user <упоминание_пользователя>**`,
-    description: 'Вывести информацию о пользователе.',
+    usage: `**${config.prefix}user**, **${config.prefix}user [user_ID]** или **${config.prefix}user [user_mention]**`,
+    description: 'Display information about the user.',
     async execute(message, args) {
         let selectedMember, embed;
         if (!args[0]) {
@@ -20,18 +20,18 @@ module.exports = {
         }
 
         if (!selectedMember) {
-            embed = Embed.errorEmbed('Не удалось найти пользователя.');
+            embed = Embed.errorEmbed('The user could not be found.');
         }
         else {
             embed = new Discord.MessageEmbed()
-                .setTitle(`:page_facing_up:Информация о пользователе ${selectedMember.user.username}`)
+                .setTitle(`:page_facing_up:User ${selectedMember.user.username} information`)
                 .setThumbnail(selectedMember.user.displayAvatarURL({ format:'png', dynamic:true, size:4096, }))
-                .setDescription('Общая информация о пользователе.')
-                .addField('Никнейм пользователя', `${selectedMember.user.username}#${selectedMember.user.discriminator}`)
-                .addField('ID пользователя', selectedMember.user.id)
-                .addField('Пользователь присоеденился', `${selectedMember.joinedAt.getUTCDate()}.${selectedMember.joinedAt.getUTCMonth()}.${selectedMember.joinedAt.getUTCFullYear()} ${selectedMember.joinedAt.getUTCHours()}:${selectedMember.joinedAt.getUTCMinutes()}:${selectedMember.joinedAt.getUTCSeconds()} UTC`)
-                .addField('Аккаунт пользователя создан', `${selectedMember.user.createdAt.getUTCDate()}.${selectedMember.user.createdAt.getUTCMonth()}.${selectedMember.user.createdAt.getUTCFullYear()} ${selectedMember.user.createdAt.getUTCHours()}:${selectedMember.user.createdAt.getUTCMinutes()}:${selectedMember.user.createdAt.getUTCSeconds()} UTC`)
-                .addField('Высшая роль пользователя', selectedMember.roles.highest)
+                .setDescription('General information about the user.')
+                .addField('User nickname', `${selectedMember.user.username}#${selectedMember.user.discriminator}`)
+                .addField('User ID', selectedMember.user.id)
+                .addField('User joined at', `${selectedMember.joinedAt.getUTCDate()}.${selectedMember.joinedAt.getUTCMonth()}.${selectedMember.joinedAt.getUTCFullYear()} ${selectedMember.joinedAt.getUTCHours()}:${selectedMember.joinedAt.getUTCMinutes()}:${selectedMember.joinedAt.getUTCSeconds()} UTC`)
+                .addField('User account created at', `${selectedMember.user.createdAt.getUTCDate()}.${selectedMember.user.createdAt.getUTCMonth()}.${selectedMember.user.createdAt.getUTCFullYear()} ${selectedMember.user.createdAt.getUTCHours()}:${selectedMember.user.createdAt.getUTCMinutes()}:${selectedMember.user.createdAt.getUTCSeconds()} UTC`)
+                .addField('Highest user role', selectedMember.roles.highest)
                 .setTimestamp()
                 .setColor(config.embedColor);
         }

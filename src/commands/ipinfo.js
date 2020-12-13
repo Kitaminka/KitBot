@@ -6,8 +6,8 @@ const config = require('../../config.json');
 module.exports = {
     name: 'ipinfo',
     adminCommand: false,
-    usage: `**${config.prefix}ipinfo <ip_адресс>**`,
-    description: 'Вывести информацию об ip адресе.',
+    usage: `**${config.prefix}ipinfo [IP_address]**`,
+    description: 'Display information about the IP address.',
     async execute(message, args) {
         let embed;
         if (!args[0]) return message.channel.send(Embed.errorEmbed('Вы не указали ip адрес.'));
@@ -20,18 +20,18 @@ module.exports = {
 
                 if (ipInfo.success) {
                     embed = new Discord.MessageEmbed()
-                        .setTitle(`:page_facing_up:Информация о ip адресе ${args[0]}`)
-                        .setDescription('Общая информация о ip адресе.')
-                        .addField('Тип ip адреса', ipInfo.type)
-                        .addField('Страна', ipInfo.country)
-                        .addField('Город', ipInfo.city)
-                        .addField('Широта', ipInfo.latitude)
-                        .addField('Долгота', ipInfo.longitude)
+                        .setTitle(`:page_facing_up:IP address ${args[0]} information`)
+                        .setDescription('General information about the ip address.')
+                        .addField('IP address type', ipInfo.type)
+                        .addField('Country', ipInfo.country)
+                        .addField('City', ipInfo.city)
+                        .addField('Latitude', ipInfo.latitude)
+                        .addField('Longitude', ipInfo.longitude)
                         .setTimestamp()
                         .setColor(config.embedColor);
                 }
                 else {
-                    embed = Embed.errorEmbed('Произошла ошибка. Возможно, вы ввели неправильный ip адрес.');
+                    embed = Embed.errorEmbed('An error occurred. You may have entered the wrong IP address.');
                 }
                 return message.channel.send(embed);
             });
