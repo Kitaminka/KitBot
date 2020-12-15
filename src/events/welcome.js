@@ -9,9 +9,9 @@ module.exports = async (member) => {
 
     const canvas = Canvas.createCanvas(700, 250);
     const ctx = canvas.getContext('2d');
-    Canvas.registerFont('../../public/fonts/impact.ttf', { family: 'Impact' });
+    Canvas.registerFont('./public/fonts/impact.ttf', { family: 'Impact' });
 
-    const background = await Canvas.loadImage('./img/background.jpg');
+    const background = await Canvas.loadImage('./public/img/background.jpg');
     ctx.drawImage(background, 0, 0, canvas.width, canvas.height);
 
     ctx.font = '50px "Impact"';
