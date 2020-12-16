@@ -3,7 +3,9 @@
   "embedColor":"#ff6940",
   "welcomeChannel":"784772433201987594",
   "memeChannel":"784772433201987594",
+  "voiceChannel":"759688642074771506",
   "adminRole":"759683325065166878",
+  "legendRole":"759689922927656962",
   "verificationRole":"772709949662035969",
   "reactionMessages": ["xd", "lmao", "ban"]
 }
