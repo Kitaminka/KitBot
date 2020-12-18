@@ -32,9 +32,9 @@ module.exports = {
             }
         } else {
             if (!client.commands.has(args[0])) {
-                embed = Embed.errorEmbed('The command you entered doesn\'t exist.');
+                embed = await Embed.errorEmbed('The command you entered doesn\'t exist.');
             } else {
-                embed = Embed.commandInfo(client.commands.get(args[0]));
+                embed = await Embed.commandInfo(client.commands.get(args[0]));
             }
         }
         return message.channel.send(embed);

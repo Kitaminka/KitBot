@@ -14,11 +14,11 @@ module.exports = {
         else if (message.guild.members.cache.get(args[0])) selectedUser = message.guild.members.cache.get(args[0]).user;
 
         if (!selectedUser) {
-            embed = Embed.errorEmbed('User not found.');
+            embed = await Embed.errorEmbed('User not found.');
         }
         else {
             embed = new Discord.MessageEmbed()
-                .setTitle(`:bust_in_silhouette:${selectedUser.user.username} user avatar`)
+                .setTitle(`:bust_in_silhouette:User ${selectedUser.username} avatar`)
                 .setImage(selectedUser.displayAvatarURL({ format:'png', dynamic:true, size:4096, }))
                 .setTimestamp()
                 .setColor(config.embedColor);

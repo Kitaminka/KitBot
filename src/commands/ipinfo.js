@@ -10,18 +10,18 @@ module.exports = {
     description: 'Display information about the IP address.',
     async execute(message, args) {
         let embed;
-        if (!args[0]) return message.channel.send(Embed.errorEmbed('Вы не указали ip адрес.'));
+        if (!args[0]) return message.channel.send(await Embed.errorEmbed('You didn\'t specify an IP address.'));
         else {
             const req = unirest('GET', `http://ipwhois.app/json/${args[0]}`);
 
-            req.end( (res) => {
+            req.end( async (res) => {
                 if (res.error) throw res.error;
                 const ipInfo = res.body;
 
                 if (ipInfo.success) {
                     embed = new Discord.MessageEmbed()
                         .setTitle(`:page_facing_up:IP address ${args[0]} information`)
-                        .setDescription('General information about the ip address.')
+                        .setDescription('General information about the IP address.')
                         .addField('IP address type', ipInfo.type)
                         .addField('Country', ipInfo.country)
                         .addField('City', ipInfo.city)
@@ -29,9 +29,8 @@ module.exports = {
                         .addField('Longitude', ipInfo.longitude)
                         .setTimestamp()
                         .setColor(config.embedColor);
-                }
-                else {
-                    embed = Embed.errorEmbed('An error occurred. You may have entered the wrong IP address.');
+                } else {
+                    embed = await Embed.errorEmbed('An error occurred. You may have entered the wrong IP address.');
                 }
                 return message.channel.send(embed);
             });

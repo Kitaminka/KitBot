@@ -60,6 +60,6 @@ module.exports = async (member) => {
         })
         .catch( () => {
             welcomeMessage.delete();
-            if (member) member.kick('Verification was not completed within 5 minutes');
+            if (member) member.kick('Verification didn\'t complete within 5 minutes');
         });
 }
