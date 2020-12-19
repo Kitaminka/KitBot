@@ -17,6 +17,7 @@ module.exports = async (member) => {
     ctx.font = '50px "Impact"';
     ctx.fillStyle =  '#fff';
     ctx.fillText('Welcome,', canvas.width / 2.8, canvas.height / 2.3);
+    ctx.font = '30px "Impact"';
     ctx.fillText(`${member.user.username}!`, canvas.width / 2.8, canvas.height / 1.5);
 
     ctx.beginPath();
