@@ -9,6 +9,5 @@ module.exports = (client) => {
     for (const file of commandFiles) {
         const command = require(`../commands/${file}`);
         client.commands.set(command.name, command);
-        console.log(`commandHandler.js: Loaded command ${command.name}!`);
     }
 }

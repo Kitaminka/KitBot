@@ -7,11 +7,10 @@ module.exports = async (client, message) => {
 
     for (const symbol of content) {
         const reactionEmoji = client.emojis.cache.find(emoji => emoji.name === `${symbol}_letter`);
-        try {
+       try {
             await message.react(reactionEmoji);
-        }
-        catch {
-            console.log('reactions.js: Message removed!');
-        }
+        } catch {
+           return;
+       }
     }
 }

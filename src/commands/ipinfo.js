@@ -23,7 +23,7 @@ module.exports = {
                         .setTitle(`:page_facing_up:IP address ${args[0]} information`)
                         .setDescription('General information about the IP address.')
                         .addField('IP address type', ipInfo.type)
-                        .addField('Country', ipInfo.country)
+                        .addField('Country',`:flag_${ipInfo.country_code.toLowerCase()}:${ipInfo.country}`)
                         .addField('City', ipInfo.city)
                         .addField('Latitude', ipInfo.latitude)
                         .addField('Longitude', ipInfo.longitude)
