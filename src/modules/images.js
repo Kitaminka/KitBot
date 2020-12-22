@@ -53,10 +53,9 @@ module.exports = {
     },
     async randomMeme(client) {
         let embed;
-        const req = unirest('GET', 'https://www.reddit.com/r/dankmemes/.json?&show=all&limit=100');
+        const req = unirest('GET', 'https://www.reddit.com/r/dankmemes/.json?&show=all&limit=1');
         await req.end( (res) => {
-            const memeNumber = Math.floor(Math.random() * 100);
-            const memeUrl = res.body.data.children[memeNumber].data.url;
+            const memeUrl = res.body.data.children[0].data.url;
             embed = new Discord.MessageEmbed()
                 .setTitle(':joy:Random meme')
                 .setImage(memeUrl)
