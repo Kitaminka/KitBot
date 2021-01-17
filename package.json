@@ -3,8 +3,8 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "debug": "nodemon index.js"
+    "start": "node .",
+    "dev": "nodemon ."
   },
   "keywords": [],
   "author": "Kitam",
@@ -14,10 +14,11 @@
     "discord.js": "^12.5.1",
     "dotenv": "^8.2.0",
     "node-fetch": "^2.6.1",
-    "nodemon": "^2.0.6",
     "unirest": "^0.6.0"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "nodemon": "^2.0.6"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Kitaminka/KitBot.git"
