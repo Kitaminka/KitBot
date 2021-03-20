@@ -35,4 +35,3 @@ ___
 |verificationRole|"772709949662035969"|Role ID, that is the verification role.|
 |reactionMessages|["xd", "lmao", "ban"]|An array containing words that the bot will place reactions under.|
 ___
-
