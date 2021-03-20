@@ -35,6 +35,4 @@ ___
 |verificationRole|"772709949662035969"|Role ID, that is the verification role.|
 |reactionMessages|["xd", "lmao", "ban"]|An array containing words that the bot will place reactions under.|
 ___
-### Discord server
-If you want to check bot functionality without installing and running it, you can join my **[Discord server](https://discord.gg/G3Dudc3)**.
-___
+
